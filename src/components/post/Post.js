@@ -1,22 +1,47 @@
 import React from "react";
 import axios from 'axios';
-import NavBar from "../navBar/NavBar";
+
 
 class Post extends React.Component {
     constructor() {
         super();
         this.state = {
-            isEditStatus: false,
+            inEditStatus: false,
             inputFieldText: "",
-            textArea: ""
+            textArea: "",
+            gallery: [],
+            image_url:""
         }
+        // this.uploadWidget = this.uploadWidget.bind(this);
     }
+    //cloudinary
+    componentDidMount(){
+        axios.get("/test").then(response => {
+            console.log(response);
+        })
+    }
+
+    // createUploadWidget() {
+    //     const widget = window.cloudinary.createUploadWidget(
+    //         {
+    //           cloudName: "yourCloudName",
+    //           uploadPreset: "YourFolderInCloudinary",
+    //           sources: ["local", "url", "dropbox", "facebook", "instagram"]
+    //         },
+    //         (error, result) => {
+    //           this.checkUploadResult(error, result);
+    //         }
+    //       );
+      
+    // }
+    
     handleClick = e => {
         this.setState({inEditStatus:false});
         axios.put(`/api/post/${this.props.id}`, {
             title:this.state.inputFieldText,
             info: this.state.textArea
         }).then(response => {
+            console.log(response);
             this.props.updatePastPost(response.data);
         })
     }
@@ -25,12 +50,24 @@ class Post extends React.Component {
             this.props.updatePastPost(response.data);
         })
     }
+    // uploadWidget() {
+    //     let image = []
+    //     const that = this
+    //     window.cloudinary.openUploadWidget({ cloud_name: 'friendz0ne', upload_preset: 'l9unmmjr', tags:['friendZone'] },
+    //     function(error, result) {
+    //         image.push(result)
+    //         console.log(image)
+    //         console.log(that.state);
+    //     })
+    //     this.setState({gallery: image})
+    // }
+    
+    
 
     render() {
+        
         return (
             <>
-            <NavBar/>
-            
             <div
             style={{
                 "border" : "1px solid black",
@@ -41,9 +78,11 @@ class Post extends React.Component {
                 <>
                     <h2>{this.props.postTitle}</h2>
                     <h2>{this.props.postInfo}</h2>
+                    {/* <img src={this.props.url} /> */}
                 </>
                 :
                 <>
+
                     <input
                     defaultValue={this.props.postTitle}
                     onChange={e => this.setState({inputFieldText: e.target.value})}
@@ -52,10 +91,11 @@ class Post extends React.Component {
                     onChange={(e) => this.setState({ textArea: e.target.value})}
                     defaultValue={this.props.postInfo}
                     ></textarea>
+
                 </>
                 }
                 {
-                    this.props.UserLanding === true?
+                    this.props.canEdit === true?
                 <>
                     {this.state.inEditStatus === false ?
                     
@@ -75,7 +115,10 @@ class Post extends React.Component {
                     </button>
                 </>
                 :
-                <button>SUBMIT</button>
+                <>
+                
+                {/* <button>SUBMIT</button> */}
+                </>
                 }
             </div>
             </>

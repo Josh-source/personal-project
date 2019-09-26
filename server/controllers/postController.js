@@ -1,25 +1,25 @@
 //add post
 function addPost(req, res) {
-    const {postInfo, postTitle} = req.body;
+    const {postInfo, postTitle, url} = req.body;
     const db = req.app.get("db");
-    db.getFromUsername(req.session.user.username).then(id => {
-        let userID = id[0].id;
-        db.addPost(userID, postTitle, postInfo).then(() => {
+    // db.User.getIdFromUsername(req.session.user.username).then(id => {
+    //     let userID = id[0].id;
+        db.Postdb.addPost(req.session.user.user_id, postTitle, postInfo, url).then(() => {
             res.sendStatus(200)
         })
-    })
+    // })
 } 
 //get past posts
 function getPastPost(req, res) {
     const db = req.app.get("db");
-    db.getPastPost(req.session.users.username).then(posts => {
+    db.Postdb.getPastPost(req.session.users.user_id).then(posts => {
         res.status(200).json(posts);
     })
 }
 //get all post
 function getAllPost(req, res) {
     const db = req.app.get("db");
-    db.getPost().then(posts => {
+    db.Postdb.getPost(req.session.user.username).then(posts => {
         res.status(200).json(posts);
     })
 }
@@ -29,9 +29,9 @@ function editPost(req, res) {
     const {title, info} = req.body;
     const db = req.app.get("db");
     db.Postdb.updatePost(title, info, id).then(() => {
-        db.Postdb.getPastPost(req.session.users.username).then(posts => {
+        db.Postdb.getPastPost().then(posts => {
             res.status(200).json(posts);
-        })
+        }).catch(() => console.log("sql err"))
     })
 }
 //export all

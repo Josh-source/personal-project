@@ -6,6 +6,8 @@ import {Redirect} from "react-router-dom";
 //redux
 import {connect} from "react-redux";
 import {updateUser} from "../../../redux/reducers/userReducer";
+//css
+import "./LoginAndRegister.css";
 
 class LoginAndRegister extends React.Component {
     constructor() {
@@ -37,7 +39,7 @@ class LoginAndRegister extends React.Component {
                 this.props.updateUser({username, email, firstName, lastName});
                 this.setState({shouldRedirect: true});
             }).catch(error => {
-                this.setState({serverErrorMessage: error.response.data .error});
+            this.setState({serverErrorMessage: error.response.data .error});
             })
         } else {
             this.setState({triedToClick: true})
@@ -64,29 +66,38 @@ class LoginAndRegister extends React.Component {
         }
         return(
             <>
-                <div>
+            <body className="home">
+                <div className="body">
                     {this.state.triedToClick === true ? <h1>Please Fill in all the Fields</h1> : null}
                     {this.state.serverErrorMessage !== "" ? <h1>{this.state.serverErrorMessage}</h1> : null}
                     <input
+                    className="UsernameField"
                     placeholder="Username"
                     name="username"
                     onChange={this.handleChange}
                     />
                     <input
+                    className="PasswordField"
                     placeholder="Password"
                     type="password"
                     name="password"
                     onChange={this.handleChange}
                 />
                 </div>
-                <button
+                <ul className="ul">
+                <button className="Login"
                 onClick={this.handleLoginClick}
-                >login</button>
-                <button
+                >LOGIN</button>
+
+                <button className="Register"
                 onClick={() => this.setState({clickedRegister: !this.state.clickedRegister})}
                 >
-                    {this.state.clickedRegister === true ? "Cancel" : "Register"}
+                    {this.state.clickedRegister === true ? "CANCEL" : "REGISTER"}
                 </button>
+                </ul>
+                <div className="header-text">
+                <h1 className="friend">Friend(</h1><h1 class="halfStyle" data-content="s">s</h1><h1 id="zone">)Zone</h1>
+                </div>
                 {
                     this.state.clickedRegister === true ?
                     <>
@@ -96,13 +107,19 @@ class LoginAndRegister extends React.Component {
                         onChange={this.handleChange}
                         />
                         <input
-                        placeholder="Last Name"
-                        name="lastName"
+                        placeholder="Email"
+                        name="email"
                         onChange={this.handleChange}
                         />
                         <input
-                        placeholder="Email"
-                        name="email"
+                        placeholder="Username"
+                        name="username"
+                        onChange={this.handleChange}
+                        />
+                        <input
+                        placeholder="Password"
+                        type="password"
+                        name="password"
                         onChange={this.handleChange}
                         />
                     <button
@@ -112,6 +129,7 @@ class LoginAndRegister extends React.Component {
                 :
                 null
                 }
+            </body>
             </>
         )
     }

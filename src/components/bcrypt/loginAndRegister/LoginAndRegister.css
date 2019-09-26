@@ -1,0 +1,101 @@
+.home{
+        
+        height: 100vh;
+        width: auto;
+        background: linear-gradient(
+            to right, 
+            #ffffff 0%, 
+            #ffffff 50%, 
+            #000000 50%, 
+            #000000 100vh 100vw
+        );
+    }
+.header-text{
+    display: flex;
+    font-family: Alike, serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 7.5vw;
+    word-spacing: 2px;
+}
+#zone{
+    color: #ffffff;
+}
+.halfStyle {
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: pre;
+    right: .35%;
+}
+
+.halfStyle:before {
+    display: block;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    content: attr(data-content);
+    overflow: hidden;
+    color:  #000000 ;
+}
+.ul{
+    display: flex;
+}
+.Login{
+    margin-left: 55vw;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    color: white;
+    transition: .5s;
+    background: black;
+    border: none;
+    justify-content: center;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+
+}
+.Register{
+    display: flex;
+    margin-left: 22.5vw;
+    text-align: center;
+    height: 100px;
+    width: auto;
+    border-radius: 50px;
+    color:white;
+    background: black;
+    justify-content: center;
+    transition: .5s;
+    border:none;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+.Register:hover{
+    
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                0 0 20px rgba(255, 255, 255, 1),
+                0 0 50px rgba(255, 255, 255, 1),
+                0 0 0 75px rgba(255, 255, 255, 0.05),
+                0 0 0 60px rgba(255, 255, 255, 0.05),
+                0 0 0 45px rgba(255, 255, 255, 0.05),
+                0 0 0 30px rgba(255, 255, 255, 0.05),
+                0 0 0 15px rgba(255, 255, 255, 0.05);
+}
+.Login:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                0 0 20px rgba(255, 255, 255, 1),
+                0 0 50px rgba(255, 255, 255, 1),
+                0 0 0 75px rgba(255, 255, 255, 0.05),
+                0 0 0 60px rgba(255, 255, 255, 0.05),
+                0 0 0 45px rgba(255, 255, 255, 0.05),
+                0 0 0 30px rgba(255, 255, 255, 0.05),
+                0 0 0 15px rgba(255, 255, 255, 0.05);
+}

@@ -1,2 +1,2 @@
-SELECT id FROM users
+SELECT user_id FROM users
 WHERE username = $1;
