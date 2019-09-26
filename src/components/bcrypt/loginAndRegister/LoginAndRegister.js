@@ -45,6 +45,10 @@ class LoginAndRegister extends React.Component {
             this.setState({triedToClick: true})
         }
     }
+    
+
+
+
     handleLoginClick = e => {
         const {username, password} = this.state;
         if(username === "" && password === "") {
@@ -70,6 +74,7 @@ class LoginAndRegister extends React.Component {
                 <div className="body">
                     {this.state.triedToClick === true ? <h1>Please Fill in all the Fields</h1> : null}
                     {this.state.serverErrorMessage !== "" ? <h1>{this.state.serverErrorMessage}</h1> : null}
+                    <div className="login-field">
                     <input
                     className="UsernameField"
                     placeholder="Username"
@@ -82,13 +87,15 @@ class LoginAndRegister extends React.Component {
                     type="password"
                     name="password"
                     onChange={this.handleChange}
-                />
+                    />
+                    </div>
+                    
                 </div>
                 <ul className="ul">
                 <button className="Login"
                 onClick={this.handleLoginClick}
                 >LOGIN</button>
-
+                
                 <button className="Register"
                 onClick={() => this.setState({clickedRegister: !this.state.clickedRegister})}
                 >
@@ -101,6 +108,7 @@ class LoginAndRegister extends React.Component {
                 {
                     this.state.clickedRegister === true ?
                     <>
+                    <div className="register-dropdown">
                         <input
                         placeholder="First Name"
                         name="firstName"
@@ -125,6 +133,7 @@ class LoginAndRegister extends React.Component {
                     <button
                     onClick={this.handleRegisterClick}
                     >Sign Up!</button>
+                    </div>
                 </>
                 :
                 null
