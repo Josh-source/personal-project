@@ -12,6 +12,9 @@
             );
     }
 .header-text{
+    position: absolute;
+    /* margin-top: 0%;  */
+    top: 10;
     display: flex;
     font-family: Alike, serif;
     font-style: italic;
@@ -67,7 +70,7 @@
     margin-left: 22.5vw;
     text-align: center;
     height: 100px;
-    width: auto;
+    width: 100px;
     border-radius: 50px;
     color:white;
     background: black;
@@ -105,10 +108,77 @@
     
     position: absolute;
     box-sizing: border-box;
-    top: 10vh;
-    left: 15%;
+    display: flex;
+    justify-items: space-between;
+    top: 8.5vh;
+    left: 34.5%;
+    height: 5vh;
+    width: 5vh;
 }
-
+.UsernameField{
+		border: none;
+		outline: none;
+}
+.PasswordField{
+		border: none;
+		outline: none;
+}
+.hidden-field{
+    display: flex;
+    margin-left: 5vw;
+}
+.submit{
+    position: absolute;
+    margin-left: 66.5vw;
+    top: 5%;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    color:white;
+    background: black;
+    justify-content: center;
+    transition: 1s;
+    border:none;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+.submit:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                0 0 20px rgba(255, 255, 255, 1),
+                0 0 50px rgba(255, 255, 255, 1),
+                0 0 0 75px rgba(255, 255, 255, 0.05),
+                0 0 0 60px rgba(255, 255, 255, 0.05),
+                0 0 0 45px rgba(255, 255, 255, 0.05),
+                0 0 0 30px rgba(255, 255, 255, 0.05),
+                0 0 0 15px rgba(255, 255, 255, 0.05);
+}
+.register-dropdown{
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    justify-items: space-between;
+    top: 8.5vh;
+    left: 11.99%;
+    height: 5vh;
+    width: 5vh;
+    border: none;
+    outline: none;
+    padding: 0%;
+}
+.first-name{
+    border: none;
+		outline: none;
+}
+.last-name{
+    border: none;
+	outline: none;
+}
+.email{
+    border: none;
+	outline: none;
+}
 
 
 
@@ -146,6 +216,16 @@ and (-webkit-min-device-pixel-ratio: 3) {
                     0 0 0 15px rgba(255, 255, 255, 0.05);
     }
     .Register:hover{
+        box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                    0 0 20px rgba(255, 255, 255, 1),
+                    0 0 50px rgba(255, 255, 255, 1),
+                    0 0 0 75px rgba(255, 255, 255, 0.05),
+                    0 0 0 60px rgba(255, 255, 255, 0.05),
+                    0 0 0 45px rgba(255, 255, 255, 0.05),
+                    0 0 0 30px rgba(255, 255, 255, 0.05),
+                    0 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+    .submit:hover{
         box-shadow: 0 0 10px rgba(255, 255, 255, 1),
                     0 0 20px rgba(255, 255, 255, 1),
                     0 0 50px rgba(255, 255, 255, 1),

@@ -102,42 +102,42 @@ class LoginAndRegister extends React.Component {
                     {this.state.clickedRegister === true ? "CANCEL" : "REGISTER"}
                 </button>
                 </ul>
-                <div className="header-text">
-                <h1 className="friend">Friend(</h1><h1 class="halfStyle" data-content="s">s</h1><h1 id="zone">)Zone</h1>
-                </div>
                 {
                     this.state.clickedRegister === true ?
                     <>
+                    <div className="hidden-field">
                     <div className="register-dropdown">
                         <input
+                        className="first-name"
                         placeholder="First Name"
                         name="firstName"
                         onChange={this.handleChange}
                         />
                         <input
+                        className="last-name"
+                        placeholder="Last Name"
+                        name="lasttName"
+                        onChange={this.handleChange}
+                        />
+                        <input
+                        className="email"
                         placeholder="Email"
                         name="email"
                         onChange={this.handleChange}
                         />
-                        <input
-                        placeholder="Username"
-                        name="username"
-                        onChange={this.handleChange}
-                        />
-                        <input
-                        placeholder="Password"
-                        type="password"
-                        name="password"
-                        onChange={this.handleChange}
-                        />
-                    <button
+                    </div>
+                    <button 
+                    className="submit"
                     onClick={this.handleRegisterClick}
                     >Sign Up!</button>
                     </div>
-                </>
+                    </>
                 :
                 null
                 }
+                <div className="header-text">
+                <h1 className="friend">Friend(</h1><h1 class="halfStyle" data-content="s">s</h1><h1 id="zone">)Zone</h1>
+                </div>
             </body>
             </>
         )
