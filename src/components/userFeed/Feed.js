@@ -3,6 +3,7 @@ import NavBar from "../navBar/NavBar";
 import Post from "../post/Post";
 import Axios from "axios";
 import {connect} from "react-redux";
+import "./Feed.css";
 
 class Feed extends React.Component {
     constructor() {
@@ -60,18 +61,23 @@ class Feed extends React.Component {
         );
         return (
             <>
-                <NavBar/>
-                <h1>Make a post</h1>
+            <div>
+            <NavBar/>
+            </div>
 
-
-                <input placeholder="title" 
+            <div className="addStuff">
+                <input 
+                className="title"
+                placeholder="title" 
                 onChange={e => this.setState({postTitle: e.target.value})}
                 />
 
 
-                <textarea
+                <input
+                className="info"
+                placeholder="How you feeling?"
                 onChange={e => this.setState({postInfo: e.target.value})}>
-                </textarea>
+                </input>
                 <div className= "main">
                     <div className= "upload">
                         <button onClick={() => widget.open()} className= "upload-button">Add Image</button>
@@ -91,6 +97,7 @@ class Feed extends React.Component {
                         console.log(individualPost);
                         return (
                         <>
+                        
                             <Post
                             canEdit={individualPost.user_id === this.props.UserId}
                             postTitle={individualPost.title} 
@@ -99,10 +106,12 @@ class Feed extends React.Component {
                             url={individualPost.url}
                             updatePastPost={this.updatePastPost}
                             />
+                        
                         </>
                         )
                     })}
                 </div>
+            </div>
             </>
         )
     }

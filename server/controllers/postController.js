@@ -34,10 +34,22 @@ function editPost(req, res) {
         }).catch(() => console.log("sql err"))
     })
 }
+function deletePost(req, res) {
+    const {id} = req.params;
+    const {title, info, url} = req.body;
+    console.log(url);
+    const db = req.app.get("db");
+    db.Postdb.updatePost(title, info, id, url).then(() => {
+        db.Postdb.getPastPost().then(posts => {
+            res.status(200).json(posts);
+        }).catch(() => console.log("sql err"))
+    })
+}
 //export all
 module.exports = {
     addPost,
     getPastPost,
     getAllPost,
-    editPost
+    editPost,
+    deletePost
 }

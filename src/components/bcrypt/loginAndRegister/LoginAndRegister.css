@@ -116,12 +116,24 @@
     width: 5vh;
 }
 .UsernameField{
-		border: none;
+        border: none;
+        border-bottom: 1px solid rgb(0, 0, 0);
 		outline: none;
 }
+.UsernameField:focus{
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border-bottom: 3px solid #000000
+}
 .PasswordField{
-		border: none;
+        border: none;
+        border-bottom: 1px solid rgb(0, 0, 0);
 		outline: none;
+}
+.PasswordField:focus{
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border-bottom: 3px solid #000000
 }
 .hidden-field{
     display: flex;
@@ -160,24 +172,41 @@
     display: flex;
     justify-items: space-between;
     top: 8.5vh;
-    left: 11.99%;
+    left: 11%;
     height: 5vh;
     width: 5vh;
     border: none;
     outline: none;
-    padding: 0%;
 }
 .first-name{
-    border: none;
-		outline: none;
+        border: none;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        outline: none;
 }
 .last-name{
     border: none;
-	outline: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    outline: none;
 }
 .email{
     border: none;
-	outline: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    outline: none;
+}
+.first-name:focus{
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border-bottom: 3px solid #000000;
+}
+.last-name:focus{
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border-bottom: 3px solid #000000;
+}
+.email:focus{
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border-bottom: 3px solid #000000;
 }
 
 
@@ -193,8 +222,9 @@ and (-webkit-min-device-pixel-ratio: 3) {
         margin-left: -62%;
     }
     .header-text{
-        font-size: 6.75vw;
+        font-size: 8vw;
         color: black;
+        top: 35%;
     }
     #zone{
         color: black;
@@ -234,5 +264,8 @@ and (-webkit-min-device-pixel-ratio: 3) {
                     0 0 0 45px rgba(255, 255, 255, 0.05),
                     0 0 0 30px rgba(255, 255, 255, 0.05),
                     0 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+    .login-field{
+        top: 20%;
     }
 }

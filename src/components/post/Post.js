@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-
+import "./Post.css";
 
 class Post extends React.Component {
     constructor() {
@@ -12,7 +12,6 @@ class Post extends React.Component {
             gallery: [],
             image_url:""
         }
-        // this.uploadWidget = this.uploadWidget.bind(this);
     }
     //cloudinary
     componentDidMount(){
@@ -20,20 +19,6 @@ class Post extends React.Component {
             console.log(response);
         })
     }
-
-    // createUploadWidget() {
-    //     const widget = window.cloudinary.createUploadWidget(
-    //         {
-    //           cloudName: "yourCloudName",
-    //           uploadPreset: "YourFolderInCloudinary",
-    //           sources: ["local", "url", "dropbox", "facebook", "instagram"]
-    //         },
-    //         (error, result) => {
-    //           this.checkUploadResult(error, result);
-    //         }
-    //       );
-      
-    // }
     
     handleClick = e => {
         this.setState({inEditStatus:false});
@@ -50,38 +35,28 @@ class Post extends React.Component {
             this.props.updatePastPost(response.data);
         })
     }
-    // uploadWidget() {
-    //     let image = []
-    //     const that = this
-    //     window.cloudinary.openUploadWidget({ cloud_name: 'friendz0ne', upload_preset: 'l9unmmjr', tags:['friendZone'] },
-    //     function(error, result) {
-    //         image.push(result)
-    //         console.log(image)
-    //         console.log(that.state);
-    //     })
-    //     this.setState({gallery: image})
-    // }
-    
-    
+
 
     render() {
         
         return (
             <>
             <div
-            style={{
-                "border" : "1px solid black",
-                "width": "30vw"
-            }}>
+            className="flip-card"
+            >
                 {
                     this.state.inEditStatus === false ?
                 <>
-                    <h2>{this.props.postTitle}</h2>
+                <>
+                    <h1>{this.props.postTitle}</h1>
                     <h2>{this.props.postInfo}</h2>
-                    {/* <img src={this.props.url} /> */}
+                </>
+                <>
+                    <img className="image-content" src={this.props.url} />
+                </>
                 </>
                 :
-                <>
+                <div className="addStuff">
 
                     <input
                     defaultValue={this.props.postTitle}
@@ -92,27 +67,31 @@ class Post extends React.Component {
                     defaultValue={this.props.postInfo}
                     ></textarea>
 
-                </>
+                </div>
                 }
                 {
                     this.props.canEdit === true?
                 <>
+                    <div className="all-buttons">
                     {this.state.inEditStatus === false ?
-                    
                     <button
+                    className="content-button"
                     onClick={() => this.setState({inEditStatus:true})}>
                         EDIT
                     </button>
                     :
                     <button
+                    className="content-button"
                     onClick={this.handleClick}>
                         SAVE
                     </button>
                     }
                     <button
+                    className="content-button"
                     onClick={this.handleDelete}>
                         DELETE
                     </button>
+                    </div>
                 </>
                 :
                 <>

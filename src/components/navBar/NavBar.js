@@ -22,13 +22,13 @@ class NavBar extends React.Component {
     render(){
     return (
         <nav>
-            <h1>
+            <h1 className="navigation">
                 <Link to= "/chat">
                     <button>CHAT</button>
                 </Link>
 
                 <Link to="/Feed">
-                    <button>HOME</button>
+                    <button>FEED</button>
                 </Link>
 
                 <Link to= "/User">

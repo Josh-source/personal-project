@@ -7,7 +7,7 @@ const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env
 
 //controllers
 const {registerUser, loginUser} = require("./controllers/bcryptController/authController");
-const {addPost, getPastPost, getAllPost, editPost} = require("./controllers/postController");
+const {addPost, getPastPost, getAllPost, editPost, deletePost} = require("./controllers/postController");
 
 const app = express();
 
@@ -39,23 +39,15 @@ app.post("/api/post", addPost)
 app.get("/api/users/post", getAllPost)
 app.get("/api/user/post", getPastPost)
 app.put("/api/post/:id", editPost)
-
-// app.get("/test", (req, res) => {
-//     // axios.get('https://569712762483578:HFYnKL9Xd-oMT8wi4E-JDvP67ic@api.cloudinary.com/v1_1/friendz0ne/resources/image')
-//     //     .then(respond => {
-//     //         console.log(respond.data.resources);
-//     //         res.status(200).json(respond.data);
-//     //         // this.setState({gallery: respond.data.resources});
-//     //     })
-// })
+// app.delete("/api/post/:id",deletePost)
 
 app.post(`/api/post/:id`,)
 
 app.delete("/api/post/:id", (req, res) => {
     const {id} = req.params;
     const db = req.app.get("db");
-    db.deletePost(id).then(() => {
-        db.getPastPost(req.session.user.username).then(post => {
+    db.Postdb.deletePost(id).then(() => {
+        db.Postdb.getPastPost(req.session.user.username).then(post => {
             res.status(200).json(post);
         })
     })

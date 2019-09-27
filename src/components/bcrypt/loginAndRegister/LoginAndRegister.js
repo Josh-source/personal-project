@@ -129,7 +129,7 @@ class LoginAndRegister extends React.Component {
                     <button 
                     className="submit"
                     onClick={this.handleRegisterClick}
-                    >Sign Up!</button>
+                    >SIGN UP!</button>
                     </div>
                     </>
                 :

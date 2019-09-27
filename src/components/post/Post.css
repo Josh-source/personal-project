@@ -1,0 +1,34 @@
+.flip-card{
+    display: flex;
+    border : 1px solid black;
+    width: 25vw;
+    height: 25vw;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    margin:2.5%;
+    margin-left: 30%;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    
+    /* align-content: center; */
+    /* padding:5%; */
+}
+.image-content{
+    /* display:inline-block; */
+    max-width: 100%;
+    height: auto;
+}
+/* .content-button{
+    bottom: 10%;
+}
+.content{
+    flex-direction: column;
+}
+.addStuff{
+    flex-direction: column;
+} */
