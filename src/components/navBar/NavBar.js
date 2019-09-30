@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import {connect} from "react-redux";
 import {updateUser} from "../../redux/reducers/userReducer";
+import "./navBar.css";
 
 class NavBar extends React.Component {
     constructor(props){
@@ -17,26 +18,24 @@ class NavBar extends React.Component {
             this.setState({shouldRedirect: true})
         }).catch(err => console.log(err));
     }
-
-
     render(){
     return (
         <nav>
             <h1 className="navigation">
                 <Link to= "/chat">
-                    <button>CHAT</button>
+                    <button className="Chat">CHAT</button>
                 </Link>
 
                 <Link to="/Feed">
-                    <button>FEED</button>
+                    <button className="Feed">FEED</button>
                 </Link>
 
                 <Link to= "/User">
-                    <button>PROFILE</button>
+                    <button className="Profile">PROFILE</button>
                 </Link>
 
                 <Link to="/">
-                    <button>LOGOUT</button>
+                    <button className="Logout">LOGOUT</button>
                 </Link>
             </h1>
         </nav>

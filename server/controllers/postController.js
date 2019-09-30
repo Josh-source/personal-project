@@ -12,14 +12,14 @@ function addPost(req, res) {
 //get past posts
 function getPastPost(req, res) {
     const db = req.app.get("db");
-    db.Postdb.getPastPost(req.session.users.user_id).then(posts => {
+    db.Postdb.getPastPost(req.session.user.user_id).then(posts => {
         res.status(200).json(posts);
     })
 }
 //get all post
 function getAllPost(req, res) {
     const db = req.app.get("db");
-    db.Postdb.getPost(req.session.user.username).then(posts => {
+    db.Postdb.getPost(req.session.user.user_id).then(posts => {
         res.status(200).json(posts);
     })
 }
@@ -29,18 +29,18 @@ function editPost(req, res) {
     const {title, info} = req.body;
     const db = req.app.get("db");
     db.Postdb.updatePost(title, info, id).then(() => {
-        db.Postdb.getPastPost().then(posts => {
+        db.Postdb.getPastPost(req.session.user.username).then(posts => {
             res.status(200).json(posts);
         }).catch(() => console.log("sql err"))
     })
 }
 function deletePost(req, res) {
     const {id} = req.params;
-    const {title, info, url} = req.body;
-    console.log(url);
+    // const {title, info, url} = req.body;
+    // console.log(url);
     const db = req.app.get("db");
-    db.Postdb.updatePost(title, info, id, url).then(() => {
-        db.Postdb.getPastPost().then(posts => {
+    db.Postdb.deletePost(id).then(() => {
+        db.Postdb.getPastPost(req.session.user).then(posts => {
             res.status(200).json(posts);
         }).catch(() => console.log("sql err"))
     })

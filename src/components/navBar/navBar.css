@@ -1,0 +1,106 @@
+.navigation{
+    display:flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    background-color: #fff;
+}
+.Chat{
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    color: white;
+    transition: 1s;
+    background: black;
+    border: none;
+    justify-content: center;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+.Feed{
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    color: white;
+    transition: 1s;
+    background: black;
+    border: none;
+    justify-content: center;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+.Profile{
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    color: white;
+    transition: 1s;
+    background: black;
+    border: none;
+    justify-content: center;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+.Logout{
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    color: white;
+    transition: 1s;
+    background: black;
+    border: none;
+    justify-content: center;
+    outline: none;
+    font-family: 'Righteous', cursive;
+    font-size: 20px;
+}
+.Chat:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgb(0, 0, 0),
+                0 0 20px rgb(0, 0, 0),
+                0 0 50px rgb(0, 0, 0),
+                0 0 0 75px rgba(0, 0, 0, 0.05),
+                0 0 0 60px rgba(0, 0, 0, 0.05),
+                0 0 0 45px rgba(0, 0, 0, 0.05),
+                0 0 0 30px rgba(0, 0, 0, 0.05),
+                0 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.Feed:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgb(0, 0, 0),
+                0 0 20px rgb(0, 0, 0),
+                0 0 50px rgb(0, 0, 0),
+                0 0 0 75px rgba(0, 0, 0, 0.05),
+                0 0 0 60px rgba(0, 0, 0, 0.05),
+                0 0 0 45px rgba(0, 0, 0, 0.05),
+                0 0 0 30px rgba(0, 0, 0, 0.05),
+                0 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.Profile:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgb(0, 0, 0),
+                0 0 20px rgb(0, 0, 0),
+                0 0 50px rgb(0, 0, 0),
+                0 0 0 75px rgba(0, 0, 0, 0.05),
+                0 0 0 60px rgba(0, 0, 0, 0.05),
+                0 0 0 45px rgba(0, 0, 0, 0.05),
+                0 0 0 30px rgba(0, 0, 0, 0.05),
+                0 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.Logout:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgb(0, 0, 0),
+                0 0 20px rgb(0, 0, 0),
+                0 0 50px rgb(0, 0, 0),
+                0 0 0 75px rgba(0, 0, 0, 0.05),
+                0 0 0 60px rgba(0, 0, 0, 0.05),
+                0 0 0 45px rgba(0, 0, 0, 0.05),
+                0 0 0 30px rgba(0, 0, 0, 0.05),
+                0 0 0 15px rgba(0, 0, 0, 0.05);
+}

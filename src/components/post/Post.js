@@ -13,15 +13,15 @@ class Post extends React.Component {
             image_url:""
         }
     }
-    //cloudinary
-    componentDidMount(){
-        axios.get("/test").then(response => {
-            console.log(response);
-        })
-    }
+    // //cloudinary
+    // componentDidMount(){
+    //     axios.get("/test").then(response => {
+    //         console.log(response);
+    //     })
+    // }
     
     handleClick = e => {
-        this.setState({inEditStatus:false});
+        this.setState({inEditStatus:false});console.log(this.props.id);
         axios.put(`/api/post/${this.props.id}`, {
             title:this.state.inputFieldText,
             info: this.state.textArea
@@ -31,6 +31,7 @@ class Post extends React.Component {
         })
     }
     handleDelete = () => {
+        console.log(this.props.id, typeof this.props.id);
         axios.delete(`/api/post/${this.props.id}`).then(response => {
             this.props.updatePastPost(response.data);
         })
@@ -45,6 +46,7 @@ class Post extends React.Component {
             className="flip-card"
             >
                 {
+                
                     this.state.inEditStatus === false ?
                 <>
                 <>

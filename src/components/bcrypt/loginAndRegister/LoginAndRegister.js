@@ -102,9 +102,10 @@ class LoginAndRegister extends React.Component {
                     {this.state.clickedRegister === true ? "CANCEL" : "REGISTER"}
                 </button>
                 </ul>
+                <>
                 {
                     this.state.clickedRegister === true ?
-                    <>
+                    
                     <div className="hidden-field">
                     <div className="register-dropdown">
                         <input
@@ -131,10 +132,11 @@ class LoginAndRegister extends React.Component {
                     onClick={this.handleRegisterClick}
                     >SIGN UP!</button>
                     </div>
-                    </>
+                    
                 :
                 null
                 }
+                </>
                 <div className="header-text">
                 <h1 className="friend">Friend(</h1><h1 class="halfStyle" data-content="s">s</h1><h1 id="zone">)Zone</h1>
                 </div>

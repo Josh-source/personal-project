@@ -65,34 +65,39 @@ class Feed extends React.Component {
             <NavBar/>
             </div>
 
-            <div className="addStuff">
-                <input 
-                className="title"
-                placeholder="title" 
-                onChange={e => this.setState({postTitle: e.target.value})}
-                />
+            <div>
+                <div>
+                    <div className="make-post">
+                        <input 
+                        className="title"
+                        placeholder="Post Title" 
+                        onChange={e => this.setState({postTitle: e.target.value})}
+                        />
+
+                        <input
+                        className="info"
+                        placeholder="How you feeling?"
+                        onChange={e => this.setState({postInfo: e.target.value})}>
+                        </input>
+                        <div className= "main">
+                            <div className= "upload-button">
+                                <button onClick={() => widget.open()} className= "upload-button">Add Image</button>
+                            </div>
+                        </div>
 
 
-                <input
-                className="info"
-                placeholder="How you feeling?"
-                onChange={e => this.setState({postInfo: e.target.value})}>
-                </input>
-                <div className= "main">
-                    <div className= "upload">
-                        <button onClick={() => widget.open()} className= "upload-button">Add Image</button>
+                        <button
+                        className="post-button"
+                        onClick={this.handleClick}>Post!</button>
+
                     </div>
-                </div>
-
-
-                <button
-                onClick={this.handleClick}>Post!</button>
                 <div
                 style={{
                     "display": "flex",
                     "flexWrap": "wrap",
                     "width": "100vw"
                 }}>
+                </div>
                     {this.state.pastPost.map(individualPost => {
                         console.log(individualPost);
                         return (

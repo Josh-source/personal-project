@@ -111,7 +111,7 @@
     display: flex;
     justify-items: space-between;
     top: 8.5vh;
-    left: 34.5%;
+    left: 32.25vw;
     height: 5vh;
     width: 5vh;
 }
@@ -172,7 +172,7 @@
     display: flex;
     justify-items: space-between;
     top: 8.5vh;
-    left: 11%;
+    left: 5.75vw;
     height: 5vh;
     width: 5vh;
     border: none;
@@ -267,5 +267,23 @@ and (-webkit-min-device-pixel-ratio: 3) {
     }
     .login-field{
         top: 20%;
+    }
+    .register-dropdown{
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        justify-items: space-between;
+        top: 25vh;
+        left: 0%;
+        height: 5vh;
+        width: 5vh;
+        border: none;
+        outline: none;
+    }
+    .submit{
+        margin-left: 30vw;
+    }
+    .Register{
+        /* margin-left: %; */
     }
 }
