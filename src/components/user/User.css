@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+
+.user-username{
+    /* overflow: hidden; */
+    margin-top: 28vh;
+    outline: none;
+    font-size: calc(20px + 18vh);
+    line-height: calc(20px + 20vh);
+    text-shadow: 0 0 5px #d400ff, 0 0 15px #d400ff, 0 0 20px #d400ff, 0 0 40px #d400ff, 0 0 60px #ff0000, 0 0 10px #d400ff, 0 0 98px #ff0000;
+    color: #3f3f3f;
+    font-family: "Sacramento", cursive;
+    text-align: center;
+    animation: blink 12s infinite;
+    -webkit-animation: blink 12s infinite;
+}
+
+@-webkit-keyframes blink {
+    20%,
+    24%,
+    55% {
+    color: #111;
+    text-shadow: none;
+    }
+
+0%,
+19%,
+21%,
+23%,
+25%,
+54%,
+56%,
+100%{
+    text-shadow: 0 0 5px #d400ff, 0 0 15px #d400ff, 0 0 20px #d400ff, 0 0 40px #d400ff, 0 0 60px #d400ff, 0 0 10px #d400ff, 0 0 98px #d400ff;
+    color: #d400ff;
+    }
+}
+@keyframes blink {
+    20%,
+    24%,
+    55% {
+    color: #111;
+    text-shadow: none;
+    }
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        text-shadow: 0 0 5px #d400ff, 0 0 15px #d400ff, 0 0 20px #d400ff, 0 0 40px #d400ff, 0 0 60px #d400ff, 0 0 10px #d400ff, 0 0 98px #d400ff;
+    color: #000000;
+    }
+}
+.update-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 10%;
+    height: 15vh;
+    margin-top:-38vh;
+    margin-bottom: 20%;
+    margin-left:8%;
+    overflow: hidden;
+}
+.username-edit{
+    
+}
+.email-edit{
+
+}
+.flip-cards{
+    display: flex;
+    font-family: 'Muli', sans-serif;
+    margin-top: 40vh;
+    height: 70%;
+    /* margin: auto; */
+    margin: 15%;
+    margin-left: 28%;
+    flex-direction: column;
+    background-color: black;
+    color: black;
+    width: 50%;
+    /* background-color: white; */
+    /* box-shadow: 4px 6px 6px 8px #d400ff, 4px 6px 6px 8px #d400ff; */
+}
+@media screen
+and (min-width: 375px) 
+and (max-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 3) {
+    .username-edit{
+        margin-top: -45%;
+        margin-left: -7%;
+        /* z-index: 1; */
+        /* overflow: hidden; */
+        display: flex;
+        position: absolute;
+    }
+    .email-edit{
+        margin-top: -45%;
+        margin-left: 29%;
+        /* z-index: 1; */
+        /* overflow: hidden; */
+        display: flex;
+        position: absolute;
+    }
+    .save-changes{
+        margin-top: -45%;
+        margin-left: 65%;
+        /* z-index: 1; */
+        /* overflow: hidden; */
+        display: flex;
+        position: absolute;
+    }
+}

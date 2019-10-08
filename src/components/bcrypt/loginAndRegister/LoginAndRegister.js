@@ -39,7 +39,7 @@ class LoginAndRegister extends React.Component {
                 this.props.updateUser({username, email, firstName, lastName});
                 this.setState({shouldRedirect: true});
             }).catch(error => {
-            this.setState({serverErrorMessage: error.response.data .error});
+            this.setState({serverErrorMessage: error.response.data.error});
             })
         } else {
             this.setState({triedToClick: true})
@@ -57,6 +57,7 @@ class LoginAndRegister extends React.Component {
             axios.post("/auth/login", {
                 username, password
             }).then(response => {
+                console.log(response.data);
                 this.props.updateUser(response.data);
                 this.setState({shouldRedirect: true});
             }).catch(error => {
@@ -76,12 +77,14 @@ class LoginAndRegister extends React.Component {
                     {this.state.serverErrorMessage !== "" ? <h1>{this.state.serverErrorMessage}</h1> : null}
                     <div className="login-field">
                     <input
+                    required
                     className="UsernameField"
                     placeholder="Username"
                     name="username"
                     onChange={this.handleChange}
                     />
                     <input
+                    required
                     className="PasswordField"
                     placeholder="Password"
                     type="password"
@@ -115,12 +118,14 @@ class LoginAndRegister extends React.Component {
                         onChange={this.handleChange}
                         />
                         <input
+                        required
                         className="last-name"
                         placeholder="Last Name"
                         name="lasttName"
                         onChange={this.handleChange}
                         />
                         <input
+                        required
                         className="email"
                         placeholder="Email"
                         name="email"

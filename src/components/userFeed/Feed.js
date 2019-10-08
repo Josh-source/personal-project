@@ -11,7 +11,8 @@ class Feed extends React.Component {
         this.state = {
             postInfo: "",
             postTitle:"",
-            pastPost:[]
+            pastPost:[],
+            makePost:false
         }
     }
     componentDidMount(){
@@ -27,6 +28,12 @@ class Feed extends React.Component {
             this.setState({pastPost: response.data})
         })
     }
+
+    handlePostClick = e => {
+        this.setState({makePost: true});
+    }
+
+
 
     handleClick = e => {
         Axios.post("/api/post", {
@@ -44,8 +51,6 @@ class Feed extends React.Component {
             this.setState({url: resultEvent.info.url});
         }
     };
-
-
 
     render() {
         // console.log(this.state.pastPosts);
@@ -67,20 +72,24 @@ class Feed extends React.Component {
 
             <div>
                 <div>
+                    <button
+                    className="post-maker"
+                    >Create Post</button>
+                    
                     <div className="make-post">
                         <input 
                         className="title"
-                        placeholder="Post Title" 
+                        placeholder="How you Feel?" 
                         onChange={e => this.setState({postTitle: e.target.value})}
                         />
 
-                        <input
+                        {/* <input
                         className="info"
                         placeholder="How you feeling?"
                         onChange={e => this.setState({postInfo: e.target.value})}>
-                        </input>
+                        </input> */}
                         <div className= "main">
-                            <div className= "upload-button">
+                            <div className= "upload-buttons">
                                 <button onClick={() => widget.open()} className= "upload-button">Add Image</button>
                             </div>
                         </div>
@@ -106,12 +115,12 @@ class Feed extends React.Component {
                             <Post
                             canEdit={individualPost.user_id === this.props.UserId}
                             postTitle={individualPost.title} 
-                            postInfo={individualPost.info}
+                            // postInfo={individualPost.info}
                             id={individualPost.post_id}
                             url={individualPost.url}
                             updatePastPost={this.updatePastPost}
+                            username={individualPost.username}
                             />
-                        
                         </>
                         )
                     })}
@@ -125,7 +134,8 @@ class Feed extends React.Component {
 function mapStateToProps(reduxState) {
     console.log(reduxState);
     return ({
-        UserId: reduxState.user.user_id
+        UserId: reduxState.user.user_id,
+        username: reduxState.user.username
     })
 }
 

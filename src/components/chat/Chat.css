@@ -1,0 +1,50 @@
+.Chattting{
+    /* display: flex; */
+    align-content: center;
+    position: absolute;
+    margin-top: 20vh;
+    margin-left: 50%;
+    overflow: hidden;
+    background-color: #d400ff;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    list-style-type: none;
+    border-radius: 25%;
+    z-index: -1;
+}
+.chat-list{
+    list-style: none;
+    margin-left: 40%;
+    margin-top: 50%;
+}
+.chat-input{
+    margin-left: 40%;
+}
+@media screen
+and (min-width: 375px) 
+and (max-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 3) {
+    .Chattting{
+        align-content: center;
+        position: absolute;
+        z-index: -1;
+        /* margin-top: 20vh; */
+        margin-left: 0%;
+        /* overflow: hidden; */
+        background-color: #d400ff;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        list-style-type: none;
+        border-radius: 0%;
+    }
+    .chat-list{
+        list-style: none;
+        margin-left: 25%;
+        margin-top: 50%;
+    }
+    .chat-input{
+        margin-left: 25%;
+    }
+}

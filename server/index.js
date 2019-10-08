@@ -2,18 +2,19 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
-const axios = require("axios");
-const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env 
-const http = require("http");
+const app = express();
 
-// const server=http.createServer(function(req,res){
-//     res.end('test');
+const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env 
+
+//socket
+const server = require('http').createServer(app)
+const sockets = require('socket.io');
+const io = sockets(server)
 
 //controllers
 const {registerUser, loginUser} = require("./controllers/bcryptController/authController");
-const {addPost, getPastPost, getAllPost, editPost, deletePost} = require("./controllers/postController");
+const {addPost, getPastPost, getAllPost, editPost, deletePost, editUser, getUserPosts} = require("./controllers/postController");
 
-const app = express();
 
 
 massive(CONNECTION_STRING).then(dbInstance => {
@@ -46,6 +47,10 @@ app.put("/api/post/:id", editPost)
 app.delete("/api/post/:id",deletePost)
 
 app.post(`/api/post/:id`,)
+//UserPage
+app.put("/api/users/", editUser)
+app.get("/api/user/posts", getUserPosts)
+
 
 app.delete("/api/post/:id", (req, res) => {
     const {id} = req.params;
@@ -56,11 +61,30 @@ app.delete("/api/post/:id", (req, res) => {
         })
     })
 })
+//socket end point
 
-// server.on(`listening`, function(){
-//     console.log('ok, server is running')
-// })
+let messages = [];
+let username = "";
 
+app.post("/login", (req, res) => {
+    req.session.username = req.body.username;
+})
 
+io.on("connection", socket => {
+    socket.emit("onConnection", {
+        message: "Sockets has been connected"
+    })
+    socket.on("messageSend", data => {
+        console.log(app);
+        messages.push({
+            message: data.message,
+            username: data.username
+        });
+        console.log(messages);
+        io.emit("newMessage", messages)
+    })
+})
 
-app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))
+server.listen(SERVER_PORT);
+server.timeout = 0;
+// app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

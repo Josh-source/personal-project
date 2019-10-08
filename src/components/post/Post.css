@@ -1,46 +1,70 @@
 .flip-card{
     display: flex;
-    border : 1px solid black;
-    width: 25vw;
-    height: 25vw;
+    font-family: 'Muli', sans-serif;
+    margin-top: 40vh;
+    height: 70%;
     margin: auto;
-    text-align: center;
-    justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5%;
     margin:2.5%;
-    margin-left: 30%;
+    padding: 3%;
+    margin-left: 28%;
     flex-direction: column;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: rgb(49, 49, 49);
+    width: 45%;
+    /* background-color: white; */
+    box-shadow: 4px 6px 6px 8px rgb(39, 39, 39), 4px 6px 6px 8px rgb(39, 39, 39);
 }
 .image-content{
     max-width: 100%;
+    max-height: 50%;
     height: auto;
+    min-width: 50%;
 }
-.make-post{ 
-    margin-left: 5vw;
-    width: 17vw;
-    height: 16vw;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.title{
+.post-title{
     margin-top: 2.5vh;
     height: 5vh;
-
 }
-.info{
+.post-info{
+    margin-top: 2vh;
+}
+.make-post{ 
+    width: 10vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 10%;
+    position: fixed;
+}
+.username{
     margin-top: 2.5vh;
-    height:5vh;
+    font-family: 'Righteous', cursive;
+    font-family: 'Muli', sans-serif;
 }
 .upload-button{
     margin-top: 2.5vh;
+    border: none;
+    outline: none;
+    background: black;
+    color: #d400ff;
 }
 .post-button{
     margin-top: 2.5vh;
+    border: none;
+    outline: none;
+    background: black;
+    color: #d400ff;
+}
+.content-button{
+    color: rgb(12, 12, 12);
+    transition: 1s;
+    justify-content: center;
+    outline: none;
+    font-family: 'Muli', sans-serif;
+    font-size: 10px;
+    height: 2.5vh;
+    bottom: 5vh;
 }
 

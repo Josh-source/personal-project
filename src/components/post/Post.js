@@ -8,23 +8,16 @@ class Post extends React.Component {
         this.state = {
             inEditStatus: false,
             inputFieldText: "",
-            textArea: "",
+            // textArea: "",
             gallery: [],
             image_url:""
         }
     }
-    // //cloudinary
-    // componentDidMount(){
-    //     axios.get("/test").then(response => {
-    //         console.log(response);
-    //     })
-    // }
-    
     handleClick = e => {
         this.setState({inEditStatus:false});console.log(this.props.id);
         axios.put(`/api/post/${this.props.id}`, {
             title:this.state.inputFieldText,
-            info: this.state.textArea
+            // info: this.state.textArea
         }).then(response => {
             console.log(response);
             this.props.updatePastPost(response.data);
@@ -41,6 +34,7 @@ class Post extends React.Component {
     render() {
         
         return (
+            <div className="body">
             <>
             <div
             className="flip-card"
@@ -50,11 +44,12 @@ class Post extends React.Component {
                     this.state.inEditStatus === false ?
                 <>
                 <>
-                    <h1>{this.props.postTitle}</h1>
-                    <h2>{this.props.postInfo}</h2>
+                    <h3 className="username">{this.props.username}</h3>
+                    <img className="image-content" src={this.props.url} />
                 </>
                 <>
-                    <img className="image-content" src={this.props.url} />
+                    <h1 className="post-title">{this.props.postTitle}</h1>
+                    {/* <h2 className="post-info">{this.props.postInfo}</h2> */}
                 </>
                 </>
                 :
@@ -103,6 +98,7 @@ class Post extends React.Component {
                 }
             </div>
             </>
+            </div>
         )
     }
 }
