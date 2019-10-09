@@ -3,7 +3,7 @@ import NavBar from "../navBar/NavBar";
 import Axios from "axios";
 import {connect} from 'react-redux';
 import "./User.css";
-import {userPosts} from "../../redux/reducers/userReducer";
+
 
 
 class User extends Component{
@@ -19,7 +19,6 @@ class User extends Component{
 
     componentDidMount() {
         Axios.get("/api/user/posts").then(response => {
-            console.log(response.data);
             this.setState({
                 usersPosts: response.data
             })
@@ -31,7 +30,6 @@ class User extends Component{
             username:this.props.username,
             email:this.props.email
         }).then(response => {
-            console.log(response);
             this.props.editUser(response.data);
         })
     }
@@ -40,7 +38,6 @@ class User extends Component{
     }
     
     render() {
-        console.log(this.props)
         return (
             <>
             <NavBar/>
@@ -69,7 +66,6 @@ class User extends Component{
             </div>
             <div>
                 {this.state.usersPosts.map(posts => {
-                    console.log(posts);
                     return (
                         <>
                         <div className="flip-cards">

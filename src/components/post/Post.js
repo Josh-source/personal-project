@@ -8,23 +8,19 @@ class Post extends React.Component {
         this.state = {
             inEditStatus: false,
             inputFieldText: "",
-            // textArea: "",
             gallery: [],
             image_url:""
         }
     }
     handleClick = e => {
-        this.setState({inEditStatus:false});console.log(this.props.id);
+        this.setState({inEditStatus:false});
         axios.put(`/api/post/${this.props.id}`, {
             title:this.state.inputFieldText,
-            // info: this.state.textArea
         }).then(response => {
-            console.log(response);
             this.props.updatePastPost(response.data);
         })
     }
     handleDelete = () => {
-        console.log(this.props.id, typeof this.props.id);
         axios.delete(`/api/post/${this.props.id}`).then(response => {
             this.props.updatePastPost(response.data);
         })
@@ -49,7 +45,6 @@ class Post extends React.Component {
                 </>
                 <>
                     <h1 className="post-title">{this.props.postTitle}</h1>
-                    {/* <h2 className="post-info">{this.props.postInfo}</h2> */}
                 </>
                 </>
                 :
@@ -92,8 +87,6 @@ class Post extends React.Component {
                 </>
                 :
                 <>
-                
-                {/* <button>SUBMIT</button> */}
                 </>
                 }
             </div>

@@ -26,13 +26,11 @@ module.exports = {
     },
     loginUser: function(req, res) {
         const {username, password} = req.body;
-        console.log(username);
         const db = req.app.get("db");
         db.User.getPasswordFromUsername([username]).then(user => {
             let hash = user[0].password;
             bcrypt.compare(password, hash).then(areSame => {
                 if(areSame) {
-                    console.log(user);
                     req.session.user = {
                         user_id: user[0].user_id,
                         username,

@@ -2,12 +2,9 @@
 async function addPost(req, res) {
     const {postInfo, postTitle, url} = req.body;
     const db = req.app.get("db");
-    // db.User.getIdFromUsername(req.session.user.username).then(id => {
-    //     let userID = id[0].id;
         await db.Postdb.addPost(req.session.user.user_id, postTitle, postInfo, url).then(() => {
             res.sendStatus(200)
         })
-    // })
 } 
 //get past posts
 async function getPastPost(req, res) {
@@ -36,8 +33,6 @@ async function editPost(req, res) {
 }
 async function deletePost(req, res) {
     const {id} = req.params;
-    // const {title, info, url} = req.body;
-    // console.log(url);
     const db = req.app.get("db");
     await db.Postdb.deletePost(id).then(() => {
         db.Postdb.getPastPost(req.session.user).then(posts => {
@@ -56,10 +51,8 @@ async function editUser(req,res) {
 
 async function getUserPosts(req,res) {
     const {user_id} = req.session.user;
-    console.log(user_id);
     const db = req.app.get("db");
     const getUserPosts = await db.Postdb.getUserPosts(user_id)
-    console.log(getUserPosts);
     res.status(200).json(getUserPosts);
 }
 //export all

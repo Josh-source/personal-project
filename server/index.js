@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
@@ -19,8 +20,11 @@ const {addPost, getPastPost, getAllPost, editPost, deletePost, editUser, getUser
 
 massive(CONNECTION_STRING).then(dbInstance => {
     app.set("db", dbInstance);
-    console.log("Database Connected !");
 })
+
+app.use( express.static(`${__dirname}/../build` ) );
+
+
 
 app.use(session({
     resave: false,
@@ -75,16 +79,16 @@ io.on("connection", socket => {
         message: "Sockets has been connected"
     })
     socket.on("messageSend", data => {
-        console.log(app);
         messages.push({
             message: data.message,
             username: data.username
         });
-        console.log(messages);
         io.emit("newMessage", messages)
     })
 })
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 server.listen(SERVER_PORT);
 server.timeout = 0;
-// app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))

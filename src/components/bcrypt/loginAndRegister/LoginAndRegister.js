@@ -31,7 +31,6 @@ class LoginAndRegister extends React.Component {
     }
     handleRegisterClick = () => {
         const {username,password,email, firstName,lastName} = this.state;
-        console.log(username);
         if(username !== "" && password !== "" && email !== "" && firstName !== "" && lastName !== "") {
             axios.post("/auth/register", {
                 username,password,email,firstName,lastName
@@ -57,7 +56,6 @@ class LoginAndRegister extends React.Component {
             axios.post("/auth/login", {
                 username, password
             }).then(response => {
-                console.log(response.data);
                 this.props.updateUser(response.data);
                 this.setState({shouldRedirect: true});
             }).catch(error => {

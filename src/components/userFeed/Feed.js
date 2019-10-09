@@ -46,8 +46,6 @@ class Feed extends React.Component {
 
     checkUploadResult = (error, resultEvent) => {
         if (resultEvent.event === "success") {
-            console.log("Picture uploaded successfully")
-            console.log(resultEvent.info.url);
             this.setState({url: resultEvent.info.url});
         }
     };
@@ -108,7 +106,6 @@ class Feed extends React.Component {
                 }}>
                 </div>
                     {this.state.pastPost.map(individualPost => {
-                        console.log(individualPost);
                         return (
                         <>
                         
