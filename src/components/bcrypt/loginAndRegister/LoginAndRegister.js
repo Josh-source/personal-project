@@ -35,6 +35,7 @@ class LoginAndRegister extends React.Component {
             axios.post("/auth/register", {
                 username,password,email,firstName,lastName
             }).then(response => {
+                console.log(response);
                 this.props.updateUser({username, email, firstName, lastName});
                 this.setState({shouldRedirect: true});
             }).catch(error => {
@@ -119,7 +120,7 @@ class LoginAndRegister extends React.Component {
                         required
                         className="last-name"
                         placeholder="Last Name"
-                        name="lasttName"
+                        name="lastName"
                         onChange={this.handleChange}
                         />
                         <input
