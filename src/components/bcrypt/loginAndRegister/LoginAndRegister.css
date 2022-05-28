@@ -75,6 +75,7 @@
     color:white;
     background: black;
     justify-content: center;
+    align-items: center;
     transition: 1s;
     border:none;
     outline: none;
